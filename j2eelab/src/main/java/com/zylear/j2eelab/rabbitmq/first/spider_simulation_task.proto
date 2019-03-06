@@ -1,0 +1,49 @@
+syntax = "proto2";
+
+import "base/resp.proto";
+import "base/user.proto";
+import "spidersvc/spider_common.proto";
+
+option java_package = "com.qingqing.api.spider.proto";
+option java_outer_classname = "SpiderSimulationTaskProto";
+option objc_class_prefix = "GPB";
+
+// 6.1.0
+message SPIDERGetSimulationTaskRequest{
+    optional int32 qingqing_user_id = 1;
+    optional string ip = 2;
+    repeated SPIDERSearchSiteType search_site_type = 3;
+    repeated SPIDERQingqingSiteType qingqing_site_type = 4;
+    optional UserType user_type=5;
+    optional SPIDERNetworkType network_type=6;
+}
+
+// 6.1.0
+message SPIDERGetSimulationTaskItem{
+    optional SPIDERSearchSiteType search_site_type = 1;
+    optional SPIDERQingqingSiteType qingqing_site_type = 2;
+    optional int64 task_id = 3;
+    optional string user_agent = 4;
+    optional string keyword = 5;
+    optional int32 keyword_id = 6;
+    optional bool click_if_found = 7;           // 找到站点后是否点击
+    optional int32 visit_depth = 8;             // 站内点击次数
+    optional int32 max_seek_page_index = 9;     // 最大搜索页面数
+}
+
+// 6.1.0
+message SPIDERGetSimulationTaskResponse{
+    optional BaseResponse response = 1;
+    repeated SPIDERGetSimulationTaskItem task_items = 2;
+}
+
+// 6.1.0
+message SPIDERReportSimulationTaskRequest{
+    optional int64 task_id = 1;
+    optional bool found_succ = 2;
+    optional bool click_succ = 3;
+    optional int32 visit_depth = 4;
+    optional int64 start_time = 5;
+    optional int64 end_time = 6;
+    optional int32 rank_index = 7;  // start from 1
+}

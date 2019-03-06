@@ -1,0 +1,276 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>com.zylear.j2eelab</groupId>
+    <artifactId>j2eelab-svc</artifactId>
+    <version>0.0.1-SNAPSHOT</version>
+    <packaging>war</packaging>
+
+    <name>j2eelab</name>
+    <description>Demo project for Spring Boot</description>
+
+    <parent>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-parent</artifactId>
+        <version>1.5.7.RELEASE</version>
+        <relativePath/> <!-- lookup parent from repository -->
+    </parent>
+
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+        <java.version>1.7</java.version>
+    </properties>
+
+    <dependencies>
+
+        <dependency>
+            <groupId>org.apache.curator</groupId>
+            <artifactId>curator-framework</artifactId>
+            <version>2.8.0</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.curator</groupId>
+            <artifactId>curator-recipes</artifactId>
+            <version>2.8.0</version>
+        </dependency>
+
+
+
+
+        <!--&lt;!&ndash; https://mvnrepository.com/artifact/org.apache.zookeeper/zookeeper &ndash;&gt;-->
+        <!--<dependency>-->
+            <!--<groupId>org.apache.zookeeper</groupId>-->
+            <!--<artifactId>zookeeper</artifactId>-->
+            <!--<version>3.4.5</version>-->
+
+            <!--<exclusions>-->
+                <!--&lt;!&ndash;<exclusion>&ndash;&gt;-->
+                    <!--&lt;!&ndash;<groupId>org.apache.logging.log4j</groupId>&ndash;&gt;-->
+                    <!--&lt;!&ndash;<artifactId>log4j</artifactId>&ndash;&gt;-->
+                <!--&lt;!&ndash;</exclusion>&ndash;&gt;-->
+                <!--&lt;!&ndash;<exclusion>&ndash;&gt;-->
+                    <!--&lt;!&ndash;<artifactId>log4j</artifactId>&ndash;&gt;-->
+                    <!--&lt;!&ndash;<groupId>log4j</groupId>&ndash;&gt;-->
+                <!--&lt;!&ndash;</exclusion>&ndash;&gt;-->
+                <!--<exclusion>-->
+                    <!--<artifactId>log4j</artifactId>-->
+                    <!--<groupId>log4j</groupId>-->
+                <!--</exclusion>-->
+                <!--<exclusion>-->
+                    <!--<artifactId>slf4j-api</artifactId>-->
+                    <!--<groupId>org.slf4j</groupId>-->
+                <!--</exclusion>-->
+                <!--<exclusion>-->
+                    <!--<artifactId>slf4j-log4j12</artifactId>-->
+                    <!--<groupId>org.slf4j</groupId>-->
+                <!--</exclusion>-->
+            <!--</exclusions>-->
+            <!--&lt;!&ndash;<type>pom</type>&ndash;&gt;-->
+        <!--</dependency>-->
+
+
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-test</artifactId>
+            <scope>test</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>org.mybatis.spring.boot</groupId>
+            <artifactId>mybatis-spring-boot-starter</artifactId>
+            <version>1.1.1</version>
+        </dependency>
+
+        <!--&lt;!&ndash; https://mvnrepository.com/artifact/com.google.guava/guava &ndash;&gt;-->
+        <!--<dependency>-->
+            <!--<groupId>com.google.guava</groupId>-->
+            <!--<artifactId>guava</artifactId>-->
+            <!--<version>23.5-jre</version>-->
+        <!--</dependency>-->
+
+
+        <!-- https://mvnrepository.com/artifact/cglib/cglib -->
+        <dependency>
+            <groupId>cglib</groupId>
+            <artifactId>cglib</artifactId>
+            <version>3.2.4</version>
+        </dependency>
+
+
+        <!--&lt;!&ndash; https://mvnrepository.com/artifact/org.springframework/spring-aop &ndash;&gt;-->
+        <!--<dependency>-->
+            <!--<groupId>org.springframework</groupId>-->
+            <!--<artifactId>spring-aop</artifactId>-->
+            <!--<version>5.0.8.RELEASE</version>-->
+        <!--</dependency>-->
+
+        <!-- https://mvnrepository.com/artifact/org.apache.commons/commons-lang3 -->
+        <dependency>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>commons-lang3</artifactId>
+            <version>3.4</version>
+        </dependency>
+
+        <!-- https://mvnrepository.com/artifact/org.aspectj/aspectjweaver -->
+        <dependency>
+            <groupId>org.aspectj</groupId>
+            <artifactId>aspectjweaver</artifactId>
+            <version>1.8.11</version>
+        </dependency>
+
+        <!-- https://mvnrepository.com/artifact/org.aspectj/aspectjrt -->
+        <dependency>
+            <groupId>org.aspectj</groupId>
+            <artifactId>aspectjrt</artifactId>
+            <version>1.8.13</version>
+        </dependency>
+
+
+
+
+        <!-- https://mvnrepository.com/artifact/mysql/mysql-connector-java -->
+        <dependency>
+            <groupId>mysql</groupId>
+            <artifactId>mysql-connector-java</artifactId>
+            <version>5.1.41</version>
+        </dependency>
+
+        <!-- https://mvnrepository.com/artifact/com.rabbitmq/amqp-client -->
+        <!--这个是单独可以用的客户端的-->
+        <!-- https://mvnrepository.com/artifact/com.rabbitmq/amqp-client -->
+        <!--<dependency>-->
+            <!--<groupId>com.rabbitmq</groupId>-->
+            <!--<artifactId>amqp-client</artifactId>-->
+            <!--<version>4.0.0</version>-->
+        <!--</dependency>-->
+
+
+
+
+         <!--https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-amqp-->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-amqp</artifactId>
+        </dependency>
+
+
+
+        <!-- https://mvnrepository.com/artifact/org.apache.httpcomponents/httpclient -->
+        <dependency>
+            <groupId>org.apache.httpcomponents</groupId>
+            <artifactId>httpclient</artifactId>
+            <version>4.3.6</version>
+        </dependency>
+
+        <!-- https://mvnrepository.com/artifact/org.jsoup/jsoup -->
+        <dependency>
+            <groupId>org.jsoup</groupId>
+            <artifactId>jsoup</artifactId>
+            <version>1.8.2</version>
+        </dependency>
+
+
+        <!--<dependency>-->
+
+            <!--<groupId>org.springframewj2eebalboot</groupId>-->
+
+            <!--<artifactId>sprj2eebalboot-starter-tomcat</artifactId>-->
+
+            <!--&lt;!&ndash;<scope>provided</scope>&ndash;&gt;-->
+
+        <!--</dependency>-->
+
+
+        <dependency>
+
+            <groupId>org.apache.tomcat.embed</groupId>
+
+            <artifactId>tomcat-embed-jasper</artifactId>
+
+            <scope>provided</scope>
+
+        </dependency>
+
+
+
+
+        <!-- 使用spring websocket依赖的jar包 -->
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-websocket</artifactId>
+            <version>${spring.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-messaging</artifactId>
+            <version>${spring.version}</version>
+        </dependency>
+
+
+
+        <!-- https://mvnrepository.com/artifact/org.eclipse.paho/org.eclipse.paho.client.mqttv3 -->
+        <dependency>
+            <groupId>org.eclipse.paho</groupId>
+            <artifactId>org.eclipse.paho.client.mqttv3</artifactId>
+            <version>1.2.0</version>
+        </dependency>
+
+
+
+        <!-- https://mvnrepository.com/artifact/io.netty/netty-all -->
+        <dependency>
+            <groupId>io.netty</groupId>
+            <artifactId>netty-all</artifactId>
+            <version>4.1.19.Final</version>
+        </dependency>
+
+
+
+
+
+    </dependencies>
+
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+            </plugin>
+
+            <plugin>
+                <groupId>org.mybatis.generator</groupId>
+                <artifactId>mybatis-generator-maven-plugin</artifactId>
+                <version>1.3.5</version>
+                <configuration>
+                    <verbose>true</verbose>
+                    <overwrite>true</overwrite>
+                </configuration>
+            </plugin>
+        </plugins>
+
+        <resources>
+            <resource>
+                <directory>src/main/java</directory>
+                <includes>
+                    <include>**/*.xml</include>
+                </includes>
+            </resource>
+            <resource>
+                <directory>src/main/resources</directory>
+                <filtering>true</filtering>
+            </resource>
+        </resources>
+
+    </build>
+
+
+</project>

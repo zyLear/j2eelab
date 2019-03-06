@@ -1,0 +1,92 @@
+syntax = "proto2";
+
+import "base/resp.proto";
+//import "base/user.proto";
+import "spidersvc/spider_common.proto";
+import "base/user.proto";
+
+option java_package = "com.qingqing.api.spider.proto";
+option java_outer_classname = "SpiderConfigProto";
+option objc_class_prefix = "GPB";
+
+// 6.1.0
+message SPIDERConfigItem{
+    optional SPIDERSearchSiteType search_site_type = 1;
+    optional SPIDERQingqingSiteType qingqing_site_type = 2;
+    optional bool simulator_switch_on = 3;   // default as false: off
+
+}
+
+
+//6.1.0
+message SPIDERBaseConfigRequest{
+    optional UserType user_type=1;
+    optional SPIDERNetworkType network_type=2;
+    optional string devive_id=3;
+    optional string qingqing_id=4;
+}
+
+
+// 6.1.0
+message SPIDERBaseConfigResponse{
+    optional BaseResponse response = 1;
+    repeated SPIDERConfigItem config_items = 2;
+}
+
+
+
+//optional string devive_id=4;
+//optional string qingqing_id=5;
+
+
+//
+//// 5.7.1 passport 用户注册请求
+//message PassportRegisterRequest{
+//    optional string account_name = 1;   // 账号 必传
+//    optional string password = 2;   // 密码 必传
+//    optional UserType user_type = 3;    // 必传
+//    optional PassportAccountType account_type = 4;   // 账号类型 必传
+////    optional string captcha_code = 5;   // 验证码
+//    optional string device_id = 6;  // 设备号
+//    optional GeoPoint geo_point = 7;    // 注册位置 非必传
+//}
+//
+//// 5.7.1 Pi 用户注册接口
+//message PassportRegisterPiRequest{
+//    optional string account_name = 1;   // 账号 必传
+//    optional string password = 2;   // 密码 非必传
+//    optional UserType user_type = 3;    // 必传
+//    optional PassportAccountType account_type = 4;   // 账号类型 必传
+////    optional string captcha_code = 5;   // 验证码
+//    optional string device_id = 6;  // 设备号
+//    optional GeoPoint geo_point = 7;    // 注册位置 非必传
+//    optional string app_name = 8;   // app 名称
+//    optional string app_platform = 9;   // platform
+//    optional string app_version = 10;   // app 版本
+//    optional string ip = 11; // ip
+//    optional string user_agent = 12; //user-agent
+//}
+//
+//// 5.7.1 passport 用户注册登录返回结果
+//message PassportRegisterResponse{
+//    optional BaseResponse response=1;
+//    optional string token = 2;
+//    optional string session_id = 3;
+//    optional string qingqing_user_id = 4;
+//    optional string user_second_id = 5;
+//    optional int64 user_id = 6;
+//    optional bool new_registered = 7;
+//}
+//
+//// 5.7.1 用户注册返回加密结果
+//message PassportRegisterPiResponse{
+//    optional BaseResponse response=1;
+//    optional string token = 2;
+//    optional string session_id = 3;
+//    optional string qingqing_user_id = 4;
+//    optional string user_second_id = 5;
+//    optional int64 user_id = 6;
+//    optional bool new_registered = 7;
+//    optional string password_hash = 8;
+//    optional string salt = 9;
+//}

@@ -1,0 +1,31 @@
+syntax = "proto2";
+
+//import "base/resp.proto";
+//import "base/user.proto";
+
+option java_package = "com.qingqing.api.spider.proto";
+option java_outer_classname = "SpiderCommonProto";
+option objc_class_prefix = "GPB";
+
+
+// 6.1.0 搜索站点类型
+enum SPIDERSearchSiteType{
+    unknown_task_search_site_type = 0;
+    baidu_pc_task_search_site_type = 1;
+    baidu_mobile_task_search_site_type = 2;
+}
+
+// 6.1.0 轻轻站点类型
+enum SPIDERQingqingSiteType{
+    unknown_task_qingqing_site_type = 0;
+    zixun_pc_task_qingqing_site_type = 1;
+    www_mobile_task_qingqing_site_type = 2;
+}
+
+//6.1.0  网络类型
+enum SPIDERNetworkType{
+    unknown_task_network_type=0;
+    wifi_task_network_type=1;
+    gprs_task_network_type=2;
+}
+
