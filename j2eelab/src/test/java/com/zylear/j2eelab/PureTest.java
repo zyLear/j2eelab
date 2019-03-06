@@ -1488,6 +1488,7 @@ public class PureTest {
         List<String> list = new LinkedList<>();
         long i = 0;
         while (true) {
+
             list.add((String.valueOf(i++) + "lalalalalaladwfdfwdf").intern());
         }
 
