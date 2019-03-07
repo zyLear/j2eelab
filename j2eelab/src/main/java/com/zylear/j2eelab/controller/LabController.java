@@ -29,6 +29,7 @@ public class LabController {
             for (Cookie cookie : cookies) {
                 if ("JSESSIONID".equals(cookie.getName())) {
                     System.out.println("JSESSIONID: " + cookie.getValue());
+
                 }
             }
         }
