@@ -9,11 +9,11 @@ import org.springframework.web.servlet.DispatcherServlet;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
 
-@Configuration
-@EnableWebMvc
-@ComponentScan(basePackages = {
-        "com.zylear.j2eelab"
-})
+//@Configuration
+//@EnableWebMvc
+//@ComponentScan(basePackages = {
+//        "com.zylear.j2eelab"
+//})
 public class WebServletConfig /*extends WebServletConfigBase */ {
 
 //    @Bean(name = "apiDispatcherServlet")

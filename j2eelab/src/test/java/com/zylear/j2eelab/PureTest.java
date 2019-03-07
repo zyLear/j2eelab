@@ -1467,6 +1467,56 @@ public class PureTest {
     }
 
     @Test
+    public void testLoopTime() {
+        int i = 500;
+        long currentTimeMillis = System.currentTimeMillis();
+        int a = 1;
+        int b = 1;
+        int c = 1;
+        int d = 1;
+        int e = 1;
+        while (i-- > 0) {
+
+            if (a > 0) {
+                a = 1;
+            }
+            if (b < 0) {
+                b = 1;
+            }
+            if (c > 0) {
+                c = 1;
+            }
+            if (d < 0) {
+                d = 1;
+            }
+            if (e > 0) {
+                e = 1;
+            }
+            if (b < 0) {
+                b = 1;
+            }
+        }
+
+        System.out.println((System.currentTimeMillis() - currentTimeMillis) / 1000.0);
+
+    }
+
+    @Test
+    public void testCharPlaceholder() {
+        char a = '\u4e2d';
+        char b = '\uD840';
+        char c = '\uDC00';
+        System.out.println((int) a);
+        System.out.print(b);
+        System.out.print(c);
+        System.out.println();
+        System.out.println(b + c);
+        System.out.println(Integer.toHexString(a));
+        System.out.println("\u4e2d\uD840\uDC00\u4e2d");
+
+    }
+
+    @Test
     public void mapValueTest() {
         Map<String, Student> map = new HashMap<>();
 
@@ -1477,12 +1527,35 @@ public class PureTest {
         map.put("b", student2);
         Collection<Student> values = map.values();
         values.remove(c);
+
+
 //        ArrayList<Student> list = new ArrayList<>(values);
 //        list.get(0).setName("b");
 //        System.out.println(list);
         System.out.println(map);
     }
 
+
+    @Test
+    public void testEncode() throws Exception {
+        ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
+        String hex = "e4b8a5";
+        int i = Integer.parseInt(hex, 16);
+        System.out.println(i);
+//        byte[] bytes = {0xe, 0x4, 0xb, 0x8, 0xa, 0x5};
+        byte[] bytes = new byte[1024];
+        FileInputStream fileInputStream = new FileInputStream(new File("C:\\Users\\xiezongyu\\Pictures\\encode_test.txt"));
+        int read;
+        while ((read = fileInputStream.read()) != -1) {
+            byteArrayOutputStream.write(bytes, 0, read);
+        }
+
+        System.out.println((byteArrayOutputStream.toString()));
+
+
+//        Writer writer = new OutputStreamWriter(new FileOutputStream(new File("s")), "utf-8");
+
+    }
 
     public static void main(final String[] args) {
         List<String> list = new LinkedList<>();

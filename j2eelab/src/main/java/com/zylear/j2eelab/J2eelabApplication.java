@@ -21,7 +21,7 @@ import org.springframework.context.annotation.ComponentScan;
 //		DataSourceAutoConfiguration.class,
 //		DataSourceTransactionManagerAutoConfiguration.class,
 //		MybatisAutoConfiguration.class,
-		DispatcherServletAutoConfiguration.class, /**如果需要自定义servlet dispatch,需要exclude*/
+//		DispatcherServletAutoConfiguration.class, /**如果需要自定义servlet dispatch,需要exclude*/
 //		ErrorMvcAutoConfiguration.class,
 //		RabbitAutoConfiguration.class,
 })
