@@ -47,4 +47,9 @@ public class TestConfiguration {
     public Student sd() {
         return null;
     }
+
+    @Bean("get-bean")
+    public Student get() {
+        return new Student(555, "get-b");
+    }
 }

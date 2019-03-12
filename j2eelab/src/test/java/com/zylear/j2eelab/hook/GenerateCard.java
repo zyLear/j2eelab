@@ -15,15 +15,16 @@ public class GenerateCard {
             'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z',
             'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'};
 
-    public static final String INSERT_TEMPLATE = "insert into t_card_info(card_number,card_password,months,is_used,is_deleted,create_time,remark) values('%s','%s',%s,0,0,now(),'0');";
+    public static final String INSERT_TEMPLATE = "insert into t_card_info(card_number,card_password,months,is_used,is_deleted,create_time,remark) values('%s','%s',%s,0,0,now(),'0')";
+    public static final String INSERT_TEMPLATE_BODY = ",('%s','%s',%s,0,0,now(),'0')";
     public static final String SHOW_TEMPLATE = "%s  卡号：%s   卡密：%s";
 
 
     public static void main(String[] args) {
 //        generateCard("181224", "01", "1", 40, 80);   //月卡
-//        generateCard("181224", "07", "70", 40, 20);   //周卡
+        generateCard("190311", "07", "70", 200, 160);   //周卡
 //        generateCard("181229", "11", "11", 40, 0);   //辅助月卡
-        generateCard("181229", "17", "170", 40, 0);   //辅助周卡
+//        generateCard("181229", "17", "170", 40, 0);   //辅助周卡
 
 
     }
@@ -45,8 +46,14 @@ public class GenerateCard {
         }
         System.out.println(result.size());
         System.out.println();
+        boolean flag = true;
         for (Map.Entry<String, String> entry : result.entrySet()) {
-            System.out.println(String.format(INSERT_TEMPLATE, entry.getKey(), entry.getValue(), months));
+            if (flag) {
+                flag = false;
+                System.out.println(String.format(INSERT_TEMPLATE, entry.getKey(), entry.getValue(), months));
+            }else {
+                System.out.println(String.format(INSERT_TEMPLATE_BODY, entry.getKey(), entry.getValue(), months));
+            }
         }
 
         System.out.println();

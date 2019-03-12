@@ -1,5 +1,6 @@
 package com.zylear.j2eelab.controller;
 
+import com.zylear.j2eelab.domain.Student;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -40,4 +41,9 @@ public class LabController {
         return "this is third time";
     }
 
+    @RequestMapping("student")
+    @ResponseBody
+    public Student s() {
+        return new Student();
+    }
 }

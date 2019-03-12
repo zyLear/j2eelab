@@ -1,6 +1,16 @@
 package com.zylear.j2eelab.domain;
 
 public class Student {
+
+    public Student(Integer id, String name) {
+        this.id = id;
+        this.name = name;
+    }
+
+    public Student() {
+
+    }
+
     private Integer id=2;
 
     private String name="sss";

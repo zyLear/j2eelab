@@ -1,33 +1,29 @@
 package com.zylear.j2eelab.config;
 
+import com.zylear.j2eelab.domain.Student;
 import org.springframework.boot.web.servlet.ServletRegistrationBean;
+import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.web.context.support.AnnotationConfigWebApplicationContext;
 import org.springframework.web.servlet.DispatcherServlet;
-import org.springframework.web.servlet.config.annotation.EnableWebMvc;
-import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
 
-//@Configuration
-//@EnableWebMvc
-//@ComponentScan(basePackages = {
-//        "com.zylear.j2eelab"
-//})
-public class WebServletConfig /*extends WebServletConfigBase */ {
+/**
+ * Created by xiezongyu on 2019/3/8.
+ */
+@Configuration
+public class WebServletConfig {
 
-//    @Bean(name = "apiDispatcherServlet")
-//    public DispatcherServlet getApiDispatcherServlet() {
-//        return super.getDispatcherServlet();
-//    }
 
     @Bean
-    public ServletRegistrationBean apiDispatcherServletRegistration() {
+//    @Order(Ordered.LOWEST_PRECEDENCE)
+    public ServletRegistrationBean apiDispatcherServletRegistration(ApplicationContext context) {
 
         DispatcherServlet dispatcherServlet = new DispatcherServlet();
-        AnnotationConfigWebApplicationContext webContext = new AnnotationConfigWebApplicationContext();
-        webContext.register();
-        dispatcherServlet.setApplicationContext(webContext);
+//        AnnotationConfigWebApplicationContext webContext = new AnnotationConfigWebApplicationContext();
+//        webContext.register();
+        dispatcherServlet.setApplicationContext(context);
+        Student bean = (Student) context.getBean("get-bean");
+        System.out.println("bean student : " + bean);
 
         ServletRegistrationBean registrationBean = new ServletRegistrationBean(dispatcherServlet);
         registrationBean.addUrlMappings("/api/*");
@@ -35,12 +31,18 @@ public class WebServletConfig /*extends WebServletConfigBase */ {
         return registrationBean;
     }
 
-//    public ServletRegistrationBean getDispatcherServletRegistration(DispatcherServlet dispatcherServlet,
-//                                                                    String[] urlMappings, String servletName) {
-//        ServletRegistrationBean registrationBean = new ServletRegistrationBean(dispatcherServlet);
-//        registrationBean.addUrlMappings(urlMappings);
-//        registrationBean.setName(servletName);
-//        return registrationBean;
-//    }
+
+    @Bean
+    public ServletRegistrationBean pageDispatcherServletRegistration(ApplicationContext context) {
+
+        DispatcherServlet dispatcherServlet = new DispatcherServlet();
+        dispatcherServlet.setApplicationContext(context);
+
+        ServletRegistrationBean registrationBean = new ServletRegistrationBean(dispatcherServlet);
+        registrationBean.addUrlMappings("/page/*");
+        registrationBean.setName("page_servlet");
+        return registrationBean;
+    }
+
 
 }
