@@ -1,5 +1,6 @@
 package com.zylear.j2eelab.config;
 
+import com.alibaba.druid.pool.ElasticSearchDruidDataSource;
 import com.zylear.j2eelab.domain.Student;
 import org.springframework.boot.web.servlet.ServletRegistrationBean;
 import org.springframework.context.ApplicationContext;

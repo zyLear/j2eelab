@@ -38,37 +38,35 @@
         </dependency>
 
 
-
-
         <!--&lt;!&ndash; https://mvnrepository.com/artifact/org.apache.zookeeper/zookeeper &ndash;&gt;-->
         <!--<dependency>-->
-            <!--<groupId>org.apache.zookeeper</groupId>-->
-            <!--<artifactId>zookeeper</artifactId>-->
-            <!--<version>3.4.5</version>-->
+        <!--<groupId>org.apache.zookeeper</groupId>-->
+        <!--<artifactId>zookeeper</artifactId>-->
+        <!--<version>3.4.5</version>-->
 
-            <!--<exclusions>-->
-                <!--&lt;!&ndash;<exclusion>&ndash;&gt;-->
-                    <!--&lt;!&ndash;<groupId>org.apache.logging.log4j</groupId>&ndash;&gt;-->
-                    <!--&lt;!&ndash;<artifactId>log4j</artifactId>&ndash;&gt;-->
-                <!--&lt;!&ndash;</exclusion>&ndash;&gt;-->
-                <!--&lt;!&ndash;<exclusion>&ndash;&gt;-->
-                    <!--&lt;!&ndash;<artifactId>log4j</artifactId>&ndash;&gt;-->
-                    <!--&lt;!&ndash;<groupId>log4j</groupId>&ndash;&gt;-->
-                <!--&lt;!&ndash;</exclusion>&ndash;&gt;-->
-                <!--<exclusion>-->
-                    <!--<artifactId>log4j</artifactId>-->
-                    <!--<groupId>log4j</groupId>-->
-                <!--</exclusion>-->
-                <!--<exclusion>-->
-                    <!--<artifactId>slf4j-api</artifactId>-->
-                    <!--<groupId>org.slf4j</groupId>-->
-                <!--</exclusion>-->
-                <!--<exclusion>-->
-                    <!--<artifactId>slf4j-log4j12</artifactId>-->
-                    <!--<groupId>org.slf4j</groupId>-->
-                <!--</exclusion>-->
-            <!--</exclusions>-->
-            <!--&lt;!&ndash;<type>pom</type>&ndash;&gt;-->
+        <!--<exclusions>-->
+        <!--&lt;!&ndash;<exclusion>&ndash;&gt;-->
+        <!--&lt;!&ndash;<groupId>org.apache.logging.log4j</groupId>&ndash;&gt;-->
+        <!--&lt;!&ndash;<artifactId>log4j</artifactId>&ndash;&gt;-->
+        <!--&lt;!&ndash;</exclusion>&ndash;&gt;-->
+        <!--&lt;!&ndash;<exclusion>&ndash;&gt;-->
+        <!--&lt;!&ndash;<artifactId>log4j</artifactId>&ndash;&gt;-->
+        <!--&lt;!&ndash;<groupId>log4j</groupId>&ndash;&gt;-->
+        <!--&lt;!&ndash;</exclusion>&ndash;&gt;-->
+        <!--<exclusion>-->
+        <!--<artifactId>log4j</artifactId>-->
+        <!--<groupId>log4j</groupId>-->
+        <!--</exclusion>-->
+        <!--<exclusion>-->
+        <!--<artifactId>slf4j-api</artifactId>-->
+        <!--<groupId>org.slf4j</groupId>-->
+        <!--</exclusion>-->
+        <!--<exclusion>-->
+        <!--<artifactId>slf4j-log4j12</artifactId>-->
+        <!--<groupId>org.slf4j</groupId>-->
+        <!--</exclusion>-->
+        <!--</exclusions>-->
+        <!--&lt;!&ndash;<type>pom</type>&ndash;&gt;-->
         <!--</dependency>-->
 
 
@@ -91,9 +89,9 @@
 
         <!--&lt;!&ndash; https://mvnrepository.com/artifact/com.google.guava/guava &ndash;&gt;-->
         <!--<dependency>-->
-            <!--<groupId>com.google.guava</groupId>-->
-            <!--<artifactId>guava</artifactId>-->
-            <!--<version>23.5-jre</version>-->
+        <!--<groupId>com.google.guava</groupId>-->
+        <!--<artifactId>guava</artifactId>-->
+        <!--<version>23.5-jre</version>-->
         <!--</dependency>-->
 
 
@@ -107,9 +105,9 @@
 
         <!--&lt;!&ndash; https://mvnrepository.com/artifact/org.springframework/spring-aop &ndash;&gt;-->
         <!--<dependency>-->
-            <!--<groupId>org.springframework</groupId>-->
-            <!--<artifactId>spring-aop</artifactId>-->
-            <!--<version>5.0.8.RELEASE</version>-->
+        <!--<groupId>org.springframework</groupId>-->
+        <!--<artifactId>spring-aop</artifactId>-->
+        <!--<version>5.0.8.RELEASE</version>-->
         <!--</dependency>-->
 
         <!-- https://mvnrepository.com/artifact/org.apache.commons/commons-lang3 -->
@@ -134,8 +132,6 @@
         </dependency>
 
 
-
-
         <!-- https://mvnrepository.com/artifact/mysql/mysql-connector-java -->
         <dependency>
             <groupId>mysql</groupId>
@@ -147,20 +143,17 @@
         <!--这个是单独可以用的客户端的-->
         <!-- https://mvnrepository.com/artifact/com.rabbitmq/amqp-client -->
         <!--<dependency>-->
-            <!--<groupId>com.rabbitmq</groupId>-->
-            <!--<artifactId>amqp-client</artifactId>-->
-            <!--<version>4.0.0</version>-->
+        <!--<groupId>com.rabbitmq</groupId>-->
+        <!--<artifactId>amqp-client</artifactId>-->
+        <!--<version>4.0.0</version>-->
         <!--</dependency>-->
 
 
-
-
-         <!--https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-amqp-->
+        <!--https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-amqp-->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-amqp</artifactId>
         </dependency>
-
 
 
         <!-- https://mvnrepository.com/artifact/org.apache.httpcomponents/httpclient -->
@@ -180,11 +173,11 @@
 
         <!--<dependency>-->
 
-            <!--<groupId>org.springframewj2eebalboot</groupId>-->
+        <!--<groupId>org.springframewj2eebalboot</groupId>-->
 
-            <!--<artifactId>sprj2eebalboot-starter-tomcat</artifactId>-->
+        <!--<artifactId>sprj2eebalboot-starter-tomcat</artifactId>-->
 
-            <!--&lt;!&ndash;<scope>provided</scope>&ndash;&gt;-->
+        <!--&lt;!&ndash;<scope>provided</scope>&ndash;&gt;-->
 
         <!--</dependency>-->
 
@@ -200,8 +193,6 @@
         </dependency>
 
 
-
-
         <!-- 使用spring websocket依赖的jar包 -->
         <dependency>
             <groupId>org.springframework</groupId>
@@ -215,14 +206,12 @@
         </dependency>
 
 
-
         <!-- https://mvnrepository.com/artifact/org.eclipse.paho/org.eclipse.paho.client.mqttv3 -->
         <dependency>
             <groupId>org.eclipse.paho</groupId>
             <artifactId>org.eclipse.paho.client.mqttv3</artifactId>
             <version>1.2.0</version>
         </dependency>
-
 
 
         <!-- https://mvnrepository.com/artifact/io.netty/netty-all -->
@@ -248,7 +237,6 @@
         </dependency>
 
 
-
         <dependency>
             <groupId>org.elasticsearch</groupId>
             <artifactId>elasticsearch</artifactId>
@@ -258,11 +246,17 @@
 
         <!--&lt;!&ndash; https://mvnrepository.com/artifact/org.elasticsearch.client/elasticsearch-rest-client &ndash;&gt;-->
         <!--<dependency>-->
-            <!--<groupId>org.elasticsearch.client</groupId>-->
-            <!--<artifactId>elasticsearch-rest-client</artifactId>-->
-            <!--<version>6.6.1</version>-->
+        <!--<groupId>org.elasticsearch.client</groupId>-->
+        <!--<artifactId>elasticsearch-rest-client</artifactId>-->
+        <!--<version>6.6.1</version>-->
         <!--</dependency>-->
 
+        <!-- https://mvnrepository.com/artifact/org.nlpcn/elasticsearch-sql -->
+        <dependency>
+            <groupId>org.nlpcn</groupId>
+            <artifactId>elasticsearch-sql</artifactId>
+            <version>6.2.4.0</version>
+        </dependency>
 
 
     </dependencies>
