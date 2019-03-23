@@ -154,7 +154,7 @@ public class EsService {
                     .field("index", "not_analyzed")
                     .endObject();
 
-            builder.startObject("titile")
+            builder.startObject("title")
                     .field("type", "string")
                     .field("store", "no")
                     .field("index", "not_analyzed")

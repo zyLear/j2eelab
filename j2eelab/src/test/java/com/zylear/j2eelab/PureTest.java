@@ -1536,6 +1536,7 @@ public class PureTest {
     }
 
 
+
     @Test
     public void testEncode() throws Exception {
         ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
@@ -1555,6 +1556,13 @@ public class PureTest {
 
 //        Writer writer = new OutputStreamWriter(new FileOutputStream(new File("s")), "utf-8");
 
+
+    }
+
+    @Test
+    public void testInherit() {
+        new BB();
+        System.out.println("tt");
     }
 
     public static void main(final String[] args) {
@@ -1697,6 +1705,9 @@ class Student implements Cloneable {
 
 abstract class AA {
     static int logger = 1;
+    static {
+        System.out.println("aa static");
+    }
 
     protected void show() {
         System.out.println(logger);
@@ -1705,7 +1716,9 @@ abstract class AA {
 
 class BB extends AA {
     static int logger = 2;
-
+    static {
+        System.out.println("bb static ");
+    }
 
     public BB() {
         show();

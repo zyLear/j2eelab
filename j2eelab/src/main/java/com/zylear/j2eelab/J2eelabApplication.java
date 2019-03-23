@@ -30,7 +30,9 @@ public class J2eelabApplication extends SpringBootServletInitializer implements 
 	public static void main(String[] args) {
 		SpringApplication.run(J2eelabApplication.class, args);
 	}
-
+	static {
+		System.setProperty("env", "DEV");
+	}
 
 	@Override
 	protected SpringApplicationBuilder configure(SpringApplicationBuilder application) {
