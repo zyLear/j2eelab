@@ -637,6 +637,11 @@ public class PureTest {
         System.out.println(set.size());
     }
 
+    @Test
+    public void tes() {
+        System.out.println(30 * 24 * 60 * 60 * 1000);
+        System.out.println(30 * 24 * 60 * 60 * 1000L);
+    }
 
     @Test
     public void testLinkedHashSet() {
@@ -644,7 +649,15 @@ public class PureTest {
         set.add("11");
         set.add("22");
         set.add("33");
+
+        Set<String> seta = new LinkedHashSet<>();
+        seta.add("44");
+        seta.add("55");
+        seta.add("66");
+        set.addAll(seta);
+
         System.out.println(set);
+        System.out.println(new ArrayList<>(set));
     }
 
     @Test
