@@ -11,7 +11,7 @@ import org.springframework.stereotype.Component;
 @Component
 public class TxTwoManager {
 
-    @Autowired
+//    @Autowired
     private StudentMapper mapper;
 
 

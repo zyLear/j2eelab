@@ -11,12 +11,17 @@ import org.springframework.context.annotation.Configuration;
  * Created by xiezongyu on 2019/3/22.
  */
 @Configuration
-//@EnableApolloConfig
+//@EnableApolloConfig("config.properties")
 public class ApolloValueConfig {
 
+static {
+    System.setProperty("env", "DEV");
+}
 
     @Value("${ap.test:df}")
     private String input;
+
+
 
 
 //    @Bean
@@ -29,11 +34,15 @@ public class ApolloValueConfig {
     @Bean
     public String s() {
 
-        Config config = ConfigService.getAppConfig();
-        System.out.println(config.getProperty("ap.test", "xxs"));
-
+//        Config config = ConfigService.getAppConfig();
+//        System.out.println(config.getProperty("tt", "xxs"));
 
         return "";
     }
+
+//    public static void main(String[] args) {
+//        Config config = ConfigService.getConfig("config.properties");
+//        System.out.println(config.getProperty("tesst", "xxs"));
+//    }
 
 }

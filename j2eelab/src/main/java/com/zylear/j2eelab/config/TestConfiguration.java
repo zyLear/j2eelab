@@ -15,6 +15,11 @@ import org.springframework.context.annotation.Configuration;
 @Configuration
 public class TestConfiguration {
 
+    @Value("${ttaa}")
+    private String test;
+    @Value("${okok}")
+    private String tt;
+
 
     @Bean("testTemplateTeacher")
     public Teacher getTemplateTeacher(TeacherTemplate teacherTemplate) {
@@ -22,7 +27,7 @@ public class TestConfiguration {
     }
 
 
-    @Bean
+//    @Bean
     public String teste(TeacherTemplate teacherTemplate, @Value("${xie}") String ds, StudentMapper studentMapper) {
         System.out.println("this is inside configuration's PostConstruct   " + teacherTemplate.getTeacher().toString());
         System.out.println(studentMapper.selectByPrimaryKey(1).toString());
@@ -45,6 +50,8 @@ public class TestConfiguration {
 
     @Bean("fdf")
     public Student sd() {
+        System.out.println(test);
+        System.out.println(tt);
         return null;
     }
 

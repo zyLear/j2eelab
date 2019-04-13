@@ -13,7 +13,7 @@ import org.springframework.transaction.annotation.Transactional;
 @Component
 public class TxManager {
 
-    @Autowired
+//    @Autowired
     private StudentMapper mapper;
     @Autowired
     private TxTwoManager txTwoManager;
@@ -23,7 +23,7 @@ public class TxManager {
         insert(student,student1);
     }
 
-    @Transactional
+//    @Transactional
     @GenericRequest
     public void insert(Student student, Student student1) {
         mapper.insert(student);

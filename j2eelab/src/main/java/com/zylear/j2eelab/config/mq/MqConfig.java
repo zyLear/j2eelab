@@ -19,7 +19,7 @@ import org.springframework.context.annotation.Configuration;
 /**
  * Created by yangzirong on 12/28/2017.
  */
-@Configuration
+//@Configuration
 public class MqConfig {
 
     public static final String ONE_PREFIX = "one_test_v";
