@@ -1,5 +1,7 @@
 package com.zylear.j2eelab.config;
 
+import com.ctrip.framework.apollo.model.ConfigChangeEvent;
+import com.ctrip.framework.apollo.spring.annotation.ApolloConfigChangeListener;
 import com.zylear.j2eelab.dao.StudentMapper;
 import com.zylear.j2eelab.domain.Student;
 import com.zylear.j2eelab.domain.Teacher;
@@ -60,4 +62,19 @@ public class TestConfiguration {
     public Student get() {
         return new Student(555, "get-b");
     }
+
+
+    @ApolloConfigChangeListener("config")
+    private void onChange(ConfigChangeEvent changeEvent) {
+        System.out.println(changeEvent.isChanged("okok"));
+
+        System.out.println(changeEvent.getChange("okok"));
+    }
+
+//    @ApolloConfigChangeListener("config.properties")
+//    private void onChangwe(ConfigChangeEvent changeEvent) {
+//        System.out.println(changeEvent.isChanged("okok"));
+//
+//        System.out.println(changeEvent.getChange("okok"));
+//    }
 }
