@@ -15,9 +15,9 @@ import org.springframework.context.annotation.Configuration;
 //@EnableApolloConfig("config.properties")
 public class ApolloValueConfig {
 
-static {
-    System.setProperty("env", "DEV");
-}
+//static {
+//    System.setProperty("env", "DEV");
+//}
 
     @Value("${ap.test:df}")
     private String input;

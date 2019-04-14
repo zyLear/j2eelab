@@ -15,9 +15,9 @@ import org.springframework.context.annotation.Configuration;
 @Configuration
 public class TestConfiguration {
 
-//    @Value("${ttaa}")
+    @Value("${ttaa}")
     private String test;
-//    @Value("${okok}")
+    @Value("${okok}")
     private String tt;
 
 
@@ -52,6 +52,7 @@ public class TestConfiguration {
     public Student sd() {
         System.out.println(test);
         System.out.println(tt);
+        System.out.println(System.getProperty("zylear.enable"));
         return null;
     }
 

@@ -2,8 +2,8 @@ org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
 com.zylear.j2eelab.boot.OkAutoConfiguration
 org.springframework.context.ApplicationContextInitializer=\
 com.zylear.j2eelab.boot.OkApplicationContextInitializer
-#org.springframework.boot.env.EnvironmentPostProcessor=\
-#com.ctrip.framework.apollo.spring.boot.ApolloApplicationContextInitializer
+org.springframework.boot.env.EnvironmentPostProcessor=\
+com.zylear.j2eelab.boot.OkApplicationContextInitializer
 
 
 
