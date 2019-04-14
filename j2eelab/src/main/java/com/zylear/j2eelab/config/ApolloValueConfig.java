@@ -3,6 +3,7 @@ package com.zylear.j2eelab.config;
 import com.ctrip.framework.apollo.Config;
 import com.ctrip.framework.apollo.ConfigService;
 import com.ctrip.framework.apollo.spring.annotation.EnableApolloConfig;
+import com.zylear.j2eelab.annotation.AssignDefault;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

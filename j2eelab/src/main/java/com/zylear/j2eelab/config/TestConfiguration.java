@@ -15,9 +15,9 @@ import org.springframework.context.annotation.Configuration;
 @Configuration
 public class TestConfiguration {
 
-    @Value("${ttaa}")
+//    @Value("${ttaa}")
     private String test;
-    @Value("${okok}")
+//    @Value("${okok}")
     private String tt;
 
 
