@@ -16,7 +16,7 @@ import javax.annotation.PostConstruct;
 @Component
 public class StudentServiceImpl implements StudentService {
 
-    @Autowired
+//    @Autowired
     private StudentMapper studentMapper;
 
     @Override

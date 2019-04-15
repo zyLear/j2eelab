@@ -1,5 +1,7 @@
 package com.zylear.j2eelab.config;
 
+import com.ctrip.framework.apollo.model.ConfigChangeEvent;
+import com.ctrip.framework.apollo.spring.annotation.ApolloConfigChangeListener;
 import com.zylear.j2eelab.dao.StudentMapper;
 import com.zylear.j2eelab.domain.Student;
 import com.zylear.j2eelab.domain.Teacher;
@@ -15,6 +17,11 @@ import org.springframework.context.annotation.Configuration;
 @Configuration
 public class TestConfiguration {
 
+    @Value("${ttaa}")
+    private String test;
+    @Value("${okok}")
+    private String tt;
+
 
     @Bean("testTemplateTeacher")
     public Teacher getTemplateTeacher(TeacherTemplate teacherTemplate) {
@@ -22,7 +29,7 @@ public class TestConfiguration {
     }
 
 
-    @Bean
+//    @Bean
     public String teste(TeacherTemplate teacherTemplate, @Value("${xie}") String ds, StudentMapper studentMapper) {
         System.out.println("this is inside configuration's PostConstruct   " + teacherTemplate.getTeacher().toString());
         System.out.println(studentMapper.selectByPrimaryKey(1).toString());
@@ -45,6 +52,9 @@ public class TestConfiguration {
 
     @Bean("fdf")
     public Student sd() {
+        System.out.println(test);
+        System.out.println(tt);
+        System.out.println(System.getProperty("zylear.enable"));
         return null;
     }
 
@@ -52,4 +62,19 @@ public class TestConfiguration {
     public Student get() {
         return new Student(555, "get-b");
     }
+
+
+    @ApolloConfigChangeListener("config")
+    private void onChange(ConfigChangeEvent changeEvent) {
+        System.out.println(changeEvent.isChanged("okok"));
+
+        System.out.println(changeEvent.getChange("okok"));
+    }
+
+//    @ApolloConfigChangeListener("config.properties")
+//    private void onChangwe(ConfigChangeEvent changeEvent) {
+//        System.out.println(changeEvent.isChanged("okok"));
+//
+//        System.out.println(changeEvent.getChange("okok"));
+//    }
 }

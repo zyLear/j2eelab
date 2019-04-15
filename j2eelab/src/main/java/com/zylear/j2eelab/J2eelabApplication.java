@@ -18,7 +18,7 @@ import org.springframework.context.annotation.ComponentScan;
 @SpringBootApplication
 @ComponentScan(basePackages = {"com.zylear.j2eelab.*"})
 @EnableAutoConfiguration(exclude = {
-//		DataSourceAutoConfiguration.class,
+		DataSourceAutoConfiguration.class,
 //		DataSourceTransactionManagerAutoConfiguration.class,
 //		MybatisAutoConfiguration.class,
 		DispatcherServletAutoConfiguration.class, /**如果需要自定义servlet dispatch,需要exclude*/

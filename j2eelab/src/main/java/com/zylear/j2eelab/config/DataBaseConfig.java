@@ -20,12 +20,12 @@ import javax.sql.DataSource;
  */
 
 
-@Configuration
-@MapperScan(basePackages = DataBaseConfig.BASE_PACKAGES,
-        sqlSessionTemplateRef = DataBaseConfig.SQL_SESSION_TEMPLATE,
-        sqlSessionFactoryRef = DataBaseConfig.SQL_SESSION_FACTORY
-)
-@EnableTransactionManagement
+//@Configuration
+//@MapperScan(basePackages = DataBaseConfig.BASE_PACKAGES,
+//        sqlSessionTemplateRef = DataBaseConfig.SQL_SESSION_TEMPLATE,
+//        sqlSessionFactoryRef = DataBaseConfig.SQL_SESSION_FACTORY
+//)
+//@EnableTransactionManagement
 public class DataBaseConfig {
 
     static public final String BASE_PACKAGES = "com.zylear.j2eelab.dao";
@@ -34,7 +34,7 @@ public class DataBaseConfig {
     public static final String TX_MANAGER = "testTransactionManager";
 
     @Bean(name = "testDataSource")
-    @ConfigurationProperties(prefix = "spring.datasource.test")
+//    @ConfigurationProperties(prefix = "spring.datasource.test")
     public DataSource testDataSource() {
 
         return DataSourceBuilder.create().build();

@@ -1,5 +1,6 @@
 package com.zylear.j2eelab.manager;
 
+import com.zylear.j2eelab.annotation.AssignDefault;
 import com.zylear.j2eelab.service.StudentService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
@@ -12,6 +13,9 @@ import javax.annotation.PostConstruct;
 
 @Component
 public class StudentManager {
+
+    @AssignDefault
+    private String sdf;
 
     @Autowired
     StudentService studentService;
