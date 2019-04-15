@@ -10,7 +10,7 @@ import org.springframework.context.annotation.Configuration;
 /**
  * Created by xiezongyu on 2019/3/22.
  */
-@Configuration
+//@Configuration
 //@EnableApolloConfig
 public class ApolloValueConfig {
 
