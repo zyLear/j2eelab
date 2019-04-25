@@ -38,8 +38,8 @@ public class BloomFilterManager {
 //    }
 
     public static void main(String[] args) {
-        String name = "sentinelxx_redis_bloom_filter";
-        FilterBuilder filterBuilder = new FilterBuilder(/*100 **/ 5000 * 10000, 0.0000001)
+        String name = "redis_bloom_filter_backup";
+        FilterBuilder filterBuilder = new FilterBuilder(/*100 **/ 1700000, 0.00001)
                 .name(name)
                 .redisBacked(true)
                 .overwriteIfExists(true)
@@ -58,9 +58,10 @@ public class BloomFilterManager {
 //        objectBloomFilterRedis.clear();
 //        System.out.println(objectBloomFilterRedis.add("ddd"));
         System.out.println(objectBloomFilterRedis.contains("ddd"));
+        System.out.println(objectBloomFilterRedis.add("ddd"));
         Jedis jedis = objectBloomFilterRedis.config().pool().getResource();
         long currentTimeMillis = System.currentTimeMillis();
-        jedis.setbit(name + ":bits", 15 * 10000 * 10000, true);
+//        jedis.setbit(name + ":bits", 15 * 10000 * 10000, true);
         System.out.println("assign span: " + (System.currentTimeMillis() - currentTimeMillis));
 
 //        BloomFilter<Object> objectBloomFilter = new FilterBuilder(1000, 0.01).buildBloomFilter();

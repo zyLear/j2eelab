@@ -2,6 +2,7 @@ package com.zylear.j2eelab;
 
 import com.zylear.j2eelab.annotation.Handle;
 import com.zylear.j2eelab.hook.CodeString;
+import org.apache.commons.lang3.CharEncoding;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -23,6 +24,10 @@ import java.lang.reflect.Field;
 import java.net.*;
 import java.nio.ByteBuffer;
 import java.nio.channels.FileChannel;
+import java.security.KeyPair;
+import java.security.KeyPairGenerator;
+import java.security.NoSuchAlgorithmException;
+import java.security.SecureRandom;
 import java.text.SimpleDateFormat;
 import java.util.*;
 import java.util.concurrent.*;
@@ -624,6 +629,33 @@ public class PureTest {
         Map map = null;
 
 
+    }
+
+    @Test
+    public void rsa() throws Exception {
+        KeyPairGenerator keyPairGenerator = KeyPairGenerator.getInstance("RSA");
+        SecureRandom secureRandom = new SecureRandom();
+        secureRandom.setSeed(1001515L);
+        keyPairGenerator.initialize(1024, secureRandom);
+        KeyPair keyPair = keyPairGenerator.generateKeyPair();
+        System.out.println(keyPair.getPrivate().getFormat());
+        System.out.println(keyPair.getPublic().getFormat());
+        byte[] encoded = keyPair.getPublic().getEncoded();
+        String s = new String(encoded, CharEncoding.ISO_8859_1);
+        byte[] bytes = s.getBytes(CharEncoding.ISO_8859_1);
+        System.out.println(s);
+        System.out.println(Arrays.toString(encoded));
+        System.out.println(Arrays.toString(bytes));
+        System.out.println(encoded.length);
+        System.out.println(bytes.length);
+        boolean f = true;
+        for (int i = 0; i < bytes.length; i++) {
+            if (encoded[i] != bytes[i]) {
+                f = false;
+                System.out.println("   " + encoded[i] + "  " + bytes[i]);
+            }
+        }
+        System.out.println(f);
     }
 
     @Test
@@ -1549,7 +1581,6 @@ public class PureTest {
     }
 
 
-
     @Test
     public void testEncode() throws Exception {
         ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
@@ -1718,6 +1749,7 @@ class Student implements Cloneable {
 
 abstract class AA {
     static int logger = 1;
+
     static {
         System.out.println("aa static");
     }
@@ -1729,6 +1761,7 @@ abstract class AA {
 
 class BB extends AA {
     static int logger = 2;
+
     static {
         System.out.println("bb static ");
     }
