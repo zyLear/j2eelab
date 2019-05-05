@@ -3,6 +3,12 @@ package com.zylear.j2eelab;
 import com.zylear.j2eelab.zookeeper.LeaderManager.Leader;
 import com.zylear.j2eelab.zookeeper.ZookeeperCuratorClient;
 import com.zylear.j2eelab.zookeeper.ZookeeperCuratorClient.Mutex;
+import org.apache.curator.framework.CuratorFramework;
+import org.apache.curator.framework.api.BackgroundCallback;
+import org.apache.curator.framework.api.CuratorEvent;
+import org.apache.zookeeper.CreateMode;
+import org.apache.zookeeper.ZooDefs.Ids;
+import org.apache.zookeeper.data.Stat;
 import org.junit.Test;
 
 import java.util.Arrays;
@@ -28,7 +34,7 @@ public class ZookeeperTest {
         ttt(new Leader() {
             @Override
             public String getResourcePath() {
-                return "/leader/v2";
+                return "/leader/test/v2";
             }
 
             @Override
@@ -66,12 +72,27 @@ public class ZookeeperTest {
     }
 
 
-
     public void ttt(Leader leader) {
         ZookeeperCuratorClient zookeeperCuratorClient = new ZookeeperCuratorClient();
         zookeeperCuratorClient.setZkConnectString("127.0.0.1:2181");
         zookeeperCuratorClient.setLockParentPath("/rootNode");
+        zookeeperCuratorClient.setLeaderParentPath("/leaderp/lalala/hao");
         zookeeperCuratorClient.start(Arrays.asList(leader));
+        try {
+            zookeeperCuratorClient
+                    .getClient()
+                    .create()
+                    .withMode(CreateMode.EPHEMERAL_SEQUENTIAL)
+                    .withACL(Ids.OPEN_ACL_UNSAFE)
+                    .inBackground((curatorframework, curatorevent) -> {
+                                System.out.println(curatorevent);
+                                System.out.println("sdf");
+                            }
+                    )
+                    .forPath("/xzytest/xxx/aa/");
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
 
 
         while (true) {

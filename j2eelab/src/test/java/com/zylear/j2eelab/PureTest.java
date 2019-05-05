@@ -2,6 +2,7 @@ package com.zylear.j2eelab;
 
 import com.zylear.j2eelab.annotation.Handle;
 import com.zylear.j2eelab.hook.CodeString;
+import org.apache.commons.io.FileUtils;
 import org.apache.commons.lang3.CharEncoding;
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -47,8 +48,7 @@ public class PureTest {
     }
 
     @Test
-    public void testTwo() {
-
+    public void file() {
 
     }
 
