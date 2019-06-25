@@ -1,4 +1,4 @@
-package com.zylear.j2eelab.threadpool;
+package com.zylear.j2eelab.base.threadpool;
 
 import java.util.HashSet;
 import java.util.Set;

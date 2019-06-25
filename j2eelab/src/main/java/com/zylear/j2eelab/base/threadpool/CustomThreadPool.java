@@ -1,4 +1,4 @@
-package com.zylear.j2eelab.threadpool;
+package com.zylear.j2eelab.base.threadpool;
 
 /**
  * Created by xiezongyu on 2019/1/18.

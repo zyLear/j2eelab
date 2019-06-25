@@ -53,6 +53,11 @@ public class PureTest {
     }
 
     @Test
+    public void shoess() {
+        System.out.println("我\"id\":142,\"qwxid\":30022,\"msgCombinationId\":2522,\"dstRefId\":11342,\"taskStatus\":\"init\",\"scheduleSendTime\":1559303649766,\"isDeleted\":false,\"createTime\":1559303619766,\"lastUpdateTime\":1559303619766}".length());
+    }
+
+    @Test
     public void testOr() {
 
         String string = "rm -rf /data/data/com.lalala";
@@ -78,6 +83,40 @@ public class PureTest {
             }
         }
         System.out.println(new String(chars));
+    }
+
+    @Test
+    public void runnableTest() {
+        Runnable runnable = new Runnable() {
+            @Override
+            public void run() {
+                System.out.println("sss");
+                throw new RuntimeException("xx");
+            }
+        };
+
+        try {
+            runnable.run();
+        } catch (RuntimeException ex){
+            ex.printStackTrace();
+        }catch (Exception e) {
+            e.printStackTrace();
+        }finally {
+            System.out.println("final");
+        }
+    }
+
+    @Test
+    public void retry() {
+        retry:
+        for (int i = 0; i < 5; i++) {
+            for (int j = 0; j < 10; j++) {
+                System.out.println(i + "  " + j);
+                if (j == 5) {
+                    continue retry;
+                }
+            }
+        }
     }
 
 
