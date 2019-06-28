@@ -67,11 +67,11 @@ public class JdkThreadPoolTest {
                 e.printStackTrace();
             }
 
-//            try {
-//                ttt.get();
-//            } catch (Exception e) {
-//                e.printStackTrace();
-//            }
+            try {
+                ttt.get();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
 
 //            Integer.bitCount()
         }

@@ -1,5 +1,6 @@
 package com.zylear.j2eelab.base.blockingqueue;
 
+import java.util.concurrent.ArrayBlockingQueue;
 import java.util.concurrent.locks.Condition;
 import java.util.concurrent.locks.ReentrantLock;
 
@@ -37,8 +38,8 @@ public class CustomBlockingQueueImpl<E> implements CustomBlockingQueue<E> {
 
     @Override
     public void put(E element) throws InterruptedException {
-        lock.lock();
-//        lock.lockInterruptibly();
+
+        lock.lockInterruptibly();
         try {
             while (count == items.length) {
                 notFull.await();
@@ -51,8 +52,8 @@ public class CustomBlockingQueueImpl<E> implements CustomBlockingQueue<E> {
 
     @Override
     public E take() throws InterruptedException {
-        lock.lock();
-//        lock.lockInterruptibly();
+
+        lock.lockInterruptibly();
         try {
             while (count == 0) {
                 notEmpty.await();
@@ -83,6 +84,8 @@ public class CustomBlockingQueueImpl<E> implements CustomBlockingQueue<E> {
 
     public static void main(String[] args) throws InterruptedException {
         CustomBlockingQueue<Integer> queue = new CustomBlockingQueueImpl<>(1);
+//        ArrayBlockingQueue<Integer> queue = new ArrayBlockingQueue<>(1);
+
 
         for (int i = 0; i < 10; i++) {
             int finalI = i;
@@ -92,7 +95,7 @@ public class CustomBlockingQueueImpl<E> implements CustomBlockingQueue<E> {
                     try {
                         Thread.sleep(finalI * 3000);
                         queue.put(finalI);
-                    } catch (InterruptedException e) {
+                    } catch (Exception e) {
                         e.printStackTrace();
                     }
 
