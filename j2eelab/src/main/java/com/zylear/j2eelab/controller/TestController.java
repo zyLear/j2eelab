@@ -22,7 +22,7 @@ public class TestController {
     private RabbitTemplate rabbitTemplate;
     @Autowired
     private TxManager txManager;
-    @Value("${okok}")
+//    @Value("${okok}")
     private String ok;
 
     @RequestMapping("/send")

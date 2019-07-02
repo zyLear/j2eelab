@@ -1,6 +1,5 @@
 package com.zylear.j2eelab.base.reentrantlock;
 
-import javafx.beans.binding.When;
 import org.junit.Test;
 
 import java.util.concurrent.locks.Condition;

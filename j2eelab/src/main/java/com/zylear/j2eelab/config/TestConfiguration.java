@@ -17,10 +17,10 @@ import org.springframework.context.annotation.Configuration;
 @Configuration
 public class TestConfiguration {
 
-    @Value("${ttaa}")
-    private String test;
-    @Value("${okok}")
-    private String tt;
+//    @Value("${ttaa}")
+//    private String test;
+////    @Value("${okok}")
+//    private String tt;
 
 
     @Bean("testTemplateTeacher")
@@ -52,8 +52,8 @@ public class TestConfiguration {
 
     @Bean("fdf")
     public Student sd() {
-        System.out.println(test);
-        System.out.println(tt);
+//        System.out.println(test);
+//        System.out.println(tt);
         System.out.println(System.getProperty("zylear.enable"));
         return null;
     }
@@ -64,12 +64,12 @@ public class TestConfiguration {
     }
 
 
-    @ApolloConfigChangeListener("config")
-    private void onChange(ConfigChangeEvent changeEvent) {
-        System.out.println(changeEvent.isChanged("okok"));
-
-        System.out.println(changeEvent.getChange("okok"));
-    }
+//    @ApolloConfigChangeListener("config")
+//    private void onChange(ConfigChangeEvent changeEvent) {
+//        System.out.println(changeEvent.isChanged("okok"));
+//
+//        System.out.println(changeEvent.getChange("okok"));
+//    }
 
 //    @ApolloConfigChangeListener("config.properties")
 //    private void onChangwe(ConfigChangeEvent changeEvent) {

@@ -2,6 +2,9 @@ package com.zylear.j2eelab.config;
 
 import com.alibaba.druid.pool.ElasticSearchDruidDataSource;
 import com.zylear.j2eelab.domain.Student;
+import com.zylear.j2eelab.listener.ServletListenerImpl;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.boot.web.servlet.ServletListenerRegistrationBean;
 import org.springframework.boot.web.servlet.ServletRegistrationBean;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.Bean;
@@ -45,5 +48,13 @@ public class WebServletConfig {
         return registrationBean;
     }
 
+
+    @SuppressWarnings("unchecked")
+    @Bean
+    public ServletListenerRegistrationBean getTaContextListener() {
+        ServletListenerRegistrationBean servletListenerRegistrationBean = new ServletListenerRegistrationBean();
+        servletListenerRegistrationBean.setListener(new ServletListenerImpl());
+        return servletListenerRegistrationBean;
+    }
 
 }
