@@ -97,14 +97,23 @@ public class PureTest {
 
         try {
             runnable.run();
-        } catch (RuntimeException ex){
+        } catch (RuntimeException ex) {
             ex.printStackTrace();
-        }catch (Exception e) {
+        } catch (Exception e) {
             e.printStackTrace();
-        }finally {
+        } finally {
             System.out.println("final");
         }
     }
+
+
+    @Test
+    public void arrayCopy() {
+        int[] elementData = new int[10];
+//        elementData = Arrays.copyOf(elementData, Integer.MAX_VALUE);
+        System.out.println(Integer.MAX_VALUE);
+    }
+
 
     @Test
     public void retry() {
@@ -119,6 +128,53 @@ public class PureTest {
         }
     }
 
+//    public Object lock = new Object();
+
+    public static void main(String[] args) {
+        new PureTest().synchronizedTest();
+    }
+
+    @Test
+    public void synchronizedTest() {
+        Object lock = new Object();
+
+        for (int i = 0; i < 5; i++) {
+            int finalI = i;
+            new Thread(new Runnable() {
+                @Override
+                public void run() {
+                    System.out.println("something " + finalI);
+                    synchronized (PureTest.this) {
+                        try {
+                            Thread.sleep(1000);
+                            PureTest.this.wait();
+                            Thread.sleep(3000);
+                            System.out.println("yes "+ finalI);
+                        } catch (InterruptedException e) {
+                            e.printStackTrace();
+                        }
+                    }
+                }
+            }).start();
+        }
+
+        try {
+            Thread.sleep(3000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        un();
+//        synchronized (lock) {
+//            lock.notifyAll();
+//        }
+        while (true) {
+
+        }
+    }
+
+    synchronized private void un() {
+       /* lock.*/notifyAll();
+    }
 
     @Test
     public void testtt() {
@@ -1648,29 +1704,29 @@ public class PureTest {
         System.out.println("tt");
     }
 
-    public static void main(final String[] args) {
-        List<String> list = new LinkedList<>();
-        long i = 0;
-        while (true) {
-
-            list.add((String.valueOf(i++) + "lalalalalaladwfdfwdf").intern());
-        }
-
+//    public static void main(final String[] args) {
+//        List<String> list = new LinkedList<>();
+//        long i = 0;
 //        while (true) {
-//            Enhancer enhancer = new Enhancer();
 //
-//            enhancer.setSuperclass(PureTest.class);
-//            enhancer.setUseCache(false);
-//            enhancer.setCallback(new MethodInterceptor() {
-//                @Override
-//                public Object intercept(Object o, Method method, Object[] objects, MethodProxy methodProxy) throws Throwable {
-//                    return methodProxy.invokeSuper(o, args);
-//                }
-//            });
-//            enhancer.create();
+//            list.add((String.valueOf(i++) + "lalalalalaladwfdfwdf").intern());
 //        }
-
-    }
+//
+////        while (true) {
+////            Enhancer enhancer = new Enhancer();
+////
+////            enhancer.setSuperclass(PureTest.class);
+////            enhancer.setUseCache(false);
+////            enhancer.setCallback(new MethodInterceptor() {
+////                @Override
+////                public Object intercept(Object o, Method method, Object[] objects, MethodProxy methodProxy) throws Throwable {
+////                    return methodProxy.invokeSuper(o, args);
+////                }
+////            });
+////            enhancer.create();
+////        }
+//
+//    }
 
     //C:\Program Files (x86)\Common Files\Oracle\Java\javapath;C:\Program Files (x86)\python\Scripts\;C:\Program Files (x86)\python\;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Program Files\Java\jdk1.7.0_79\bin;C:\Program Files\Java\jdk1.7.0_79\jre\bin;C:\Program Files\TortoiseGit\bin;D:\Work\apache-maven-3.3.3\bin;D:\SDK\android-sdk-windows\platform-tools;D:\SDK\android-sdk-windows\tools;C:\Program Files (x86)\Appium\resources\app\node_modules\appium;C:\Program Files (x86)\GtkSharp\2.12\bin;C:\Program Files\dotnet\;C:\Program Files\nodejs\;C:\gradle\gradle-4.9\bin;C:\Program Files\Git\cmd;C:\python37;C:\python37\Scripts;C:\Users\xiezongyu\AppData\Local\Microsoft\WindowsApps;D:\SDK\android-sdk-windows\platform-tools;D:\SDK\android-sdk-windows\tools;C:\Program Files (x86)\Appium\node_modules\.bin;C:\Users\xiezongyu\AppData\Local\atom\bin;C:\Users\xiezongyu\AppData\Local\Programs\Fiddler;C:\Users\xiezongyu\AppData\Roaming\npm
 }
