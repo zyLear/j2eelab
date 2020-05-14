@@ -203,6 +203,20 @@ public class PureTest {
 
     }
 
+
+    @Test
+    public void hashCodeTest() {
+        Custom aa = new Custom("na","dsd");
+        System.out.println(aa.hashCode());
+        System.out.println(aa);
+        aa.name = "weerer";
+        System.out.println(aa.hashCode());
+        System.out.println(aa);
+
+    }
+
+
+
     @Test
     public void writeFilesTest() {
         File file = new File("D:\\grab\\fileIndex.txt");

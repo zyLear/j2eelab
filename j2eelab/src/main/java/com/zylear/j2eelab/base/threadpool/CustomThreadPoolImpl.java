@@ -15,8 +15,6 @@ public class CustomThreadPoolImpl implements CustomThreadPool {
     private final ReentrantLock mainLock = new ReentrantLock();
 
 
-
-
     private Integer corePoolSize;
 
     private Integer workThreadCount = 0;
@@ -26,7 +24,6 @@ public class CustomThreadPoolImpl implements CustomThreadPool {
     private Set<Worker> workers = new HashSet<>();
 
 
-
     private int largestPoolSize;
 
     private long completedTaskCount;
@@ -34,24 +31,42 @@ public class CustomThreadPoolImpl implements CustomThreadPool {
     private volatile long keepAliveTime;
 
 
-
     @Override
     public void sumbit(Runnable runnable) {
+
+        boolean isRunning = getStatus();
 
         if (workThreadCount < corePoolSize) {
             addWorker(runnable, true);
         }
+        if (workThreadCount >= corePoolSize) {
+            if (isRunning && linkedBlockingQueue.offer(runnable)) {
+                /*if isRunning */
+            } else {
 
-    }
+                if (addWorker(runnable, false)) {
 
-    private void addWorker(Runnable runnable, boolean isCore) {
-        if (isCore) {
+                    //reject
 
+                }
+
+            }
         }
 
     }
 
-    private static class Worker{
+    private Boolean addWorker(Runnable runnable, boolean isCore) {
+        if (isCore) {
+
+        }
+        return true;
+    }
+
+    public boolean getStatus() {
+        return false;
+    }
+
+    private static class Worker {
 
         private Thread thread;
         Runnable firstTask;

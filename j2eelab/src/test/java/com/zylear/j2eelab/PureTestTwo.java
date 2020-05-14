@@ -1,9 +1,11 @@
 package com.zylear.j2eelab;
 
 import org.apache.commons.io.FileUtils;
+import org.apache.commons.lang3.StringUtils;
 import org.junit.Test;
 
 import java.io.File;
+import java.util.Arrays;
 import java.util.List;
 
 /**
@@ -30,6 +32,25 @@ public class PureTestTwo {
             System.out.print("'" + string + "',");
         }
         System.out.print(")");
+    }
+
+    @Test
+    public void split() {
+        String s = "1";
+        long l = System.currentTimeMillis();
+        for (int i = 0; i < 10000000; i++) {
+            String[] split = s.split("-");
+        }
+        System.out.println(System.currentTimeMillis() - l);
+
+        long time = System.currentTimeMillis();
+        for (int i = 0; i < 10000000; i++) {
+            String[] split = StringUtils.split(s, "-");
+        }
+        System.out.println(System.currentTimeMillis() - time);
+
+
+//        System.out.println(Arrays.asList(split));
     }
 
 }
