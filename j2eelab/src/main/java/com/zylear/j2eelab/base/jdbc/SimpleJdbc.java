@@ -1,5 +1,6 @@
 package com.zylear.j2eelab.base.jdbc;
 
+import javax.sql.DataSource;
 import java.sql.*;
 
 public class SimpleJdbc {
@@ -31,6 +32,7 @@ public class SimpleJdbc {
         try {
             // 加载驱动类com.mysql.jdbc.Driver
             Class.forName("com.mysql.jdbc.Driver");
+
 
             // 连接数据库
             conn = DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/exam?characterEncoding=UTF-8", "root", "root");
