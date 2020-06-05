@@ -1,4 +1,4 @@
-package com.zylear.j2eelab.base;
+package com.zylear.j2eelab.base.synchronizedtest;
 
 public class SynchronizedTest {
 

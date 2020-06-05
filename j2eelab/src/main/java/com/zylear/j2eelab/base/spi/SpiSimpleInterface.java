@@ -1,4 +1,7 @@
 package com.zylear.j2eelab.base.spi;
 
-public class SpiSimpleInterface {
+public interface SpiSimpleInterface {
+
+    Integer handle();
+
 }

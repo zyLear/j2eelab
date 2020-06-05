@@ -13,8 +13,13 @@ public class ThreadPoolRejectTest {
         executorService.submit(new CustomRunnable());
         executorService.submit(new CustomRunnable());
         try {
-            executorService.submit(new CustomRunnable());
+            Future<?> submit = executorService.submit(new CustomRunnable());
+            Object o = submit.get();
         } catch (RejectedExecutionException e) {
+            e.printStackTrace();
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        } catch (ExecutionException e) {
             e.printStackTrace();
         }
         System.out.println("eee");
@@ -29,6 +34,19 @@ public class ThreadPoolRejectTest {
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
+        }
+    }
+
+    public static class CustomCallable implements Callable<Integer>{
+
+        @Override
+        public Integer call() {
+            try {
+                Thread.sleep(10000000);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+            return 1;
         }
     }
 
